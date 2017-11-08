@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+<mapper namespace="talentrover.mapper.CompanyMapper">
+ 
+  <select id="getCompanyByName" parameterType="String" resultType="talentrover.model.Company">
+     SELECT NAME as name, AGE as age,ADDRESS as address FROM COMPANY where NAME = #{companyName}
+  </select>
+  <!-- Instead of referencing Fully Qualified Class Names we can register Aliases in mybatis-config.xml and use Alias names. -->
+   <resultMap type="COMPANY" id="CompanyResult">
+    <result property="name" column="NAME"/>
+    <result property="age" column="AGE"/>
+    <result property="address" column="ADDRESS"/>
+   </resultMap>
+   
+</mapper>
